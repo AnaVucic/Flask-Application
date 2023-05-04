@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Library</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+
+    <h1 style="text-align: center;">Books In Library</h1>
+
+    {% if books|length < 1 %}
+
+    <h4 style="text-align: center;">There are no books. Create one below!</h4>
+
+    {% else %}
+
+    <table>  
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publish Date</th>
+            <th>Actions</th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.published.date() }}</td>
+                <td>
+                    <a href="/delete/{{book.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{book.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <form action="/" method="POST">
+        <input type="text" name="title" id="title" placeholder="Title">
+        <input type="text" name="author" id="author" placeholder="Author">
+        <input type="submit" value="Add Book">
+    </form>
+</div>
+{% endblock %}
