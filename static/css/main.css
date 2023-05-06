@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     font-family: sans-serif;
-    background-color: lightgoldenrodyellow;
+    background-color: lightsteelblue;
 }
 
 .content {
@@ -10,7 +10,7 @@ body, html {
 }
 
 table, td, th {
-    border: 1px solid #aaa;
+    border: 1px solid white;
 }
 
 table {
@@ -28,9 +28,12 @@ td {
 }
 
 form {
-    display: flex;
-    justify-content: space-around;
+    display: inline-grid;
+    justify-content: center;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 #content {
