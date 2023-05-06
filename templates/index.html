@@ -20,7 +20,7 @@
         <tr>
             <th>Title</th>
             <th>Author</th>
-            <th>Publish Date</th>
+            <th>Release Date</th>
             <th>Actions</th>
         </tr>
         {% for book in books %}
@@ -40,6 +40,7 @@
     <form action="/" method="POST">
         <input type="text" name="title" id="title" placeholder="Title">
         <input type="text" name="author" id="author" placeholder="Author">
+        <input type="date" name="published" id="published" placeholder="Published">
         <input type="submit" value="Add Book">
     </form>
 </div>
