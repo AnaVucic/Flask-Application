@@ -14,6 +14,7 @@ class Book(db.Model):
     author = db.Column(db.String(50), nullable=False)
     published = db.Column(db.DateTime, default=datetime.utcnow)
 
+    #definisanje sta zelimo da bude prikaz knjige (id)
     def __repr__(self):
         return '<Book %r>' % self.id
     
@@ -41,6 +42,7 @@ def index():
 def delete(id):
     book_to_delete = Book.query.get_or_404(id)
     try:
+        #SQLAlchemy query API
         db.session.delete(book_to_delete)
         db.session.commit()
         return redirect('/')
@@ -59,7 +61,7 @@ def update(id):
             db.session.commit()
             return redirect('/')
         except:
-            return 'There was an issue updateing your book'
+            return 'There was an issue updating your book'
     else:
         return render_template('update.html', book=book_to_update)
 
